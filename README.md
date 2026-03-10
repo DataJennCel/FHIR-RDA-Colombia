@@ -4,8 +4,8 @@ Implementación de un Resumen de Atención (RDA) en estándar HL7 FHIR R4, ajust
 
 📋 Contexto
 
-El sistema de salud colombiano históricamente ha operado con historias clínicas fragmentadas — cada IPS, EPS o consulta privada maneja sus propios formatos, imposibilitando la comunicación entre sistemas.
-El estándar HL7 FHIR permite la comunicación de historias clínicas sin importar su origen dentro del sistema de salud, logrando mejorar la calidad de atención para el paciente y facilitando la toma de decisiones del personal médico.
+El sistema de salud colombiano históricamente ha operado con historias clínicas fragmentadas imposibilitando la comunicación entre sistemas.
+El estándar HL7 FHIR permite la comunicación de historias clínicas de diferentes sistemas de salud permitiendo intercambiar datos clinicos de manera sencilla y estructura con el obejtivo de mejorar la calidad de atención para el paciente y facilitando la atención de este por parte del personal de salud.
 La Resolución 1888 de 2025 hace obligatoria esta implementación para todas las IPS, EPS y proveedores de software del país antes de abril de 2026, convirtiendo la interoperabilidad en un requisito operativo urgente para el sector.
 
 🎯 Objetivo del repositorio
@@ -36,11 +36,11 @@ Demostrar la construcción paso a paso de un RDA en formato FHIR R4, desde los r
 
 🇨🇴 Estándares colombianos utilizados
 
-HL7 FHIR R4 ---> Base técnica del RDA
-CIE-10 --------> Codificación de diagnósticos
-CUPS ----------> Codificación de procedimientos y tipo de consulta
-ATC (OMS)------> Codificación de medicamentos
-RETHUS --------> Registro del profesional de salud
+- HL7 FHIR R4 ---> Base técnica del RDA
+- CIE-10 --------> Codificación de diagnósticos
+- CUPS ----------> Codificación de procedimientos y tipo de consulta
+- ATC (OMS)------> Codificación de medicamentos
+- RETHUS --------> Registro del profesional de salud
 
 💻 Tecnologías
 
