@@ -1,0 +1,214 @@
+{
+  "resourceType": "Bundle",
+  "id": "bundle-rda-colombia-001",
+  "type": "transaction",
+  "timestamp": "2026-03-07T09:30:00Z",
+  "entry": [
+    {
+      "fullUrl": "Patient/pac-001",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "pac-001",
+        "identifier": [
+          {
+            "system": "https://www.registraduria.gov.co",
+            "value": "1020456789"
+          }
+        ],
+        "extension": [
+          {
+            "url": "https://hl7colombia.org/fhir/StructureDefinition/CoverageRegimen",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "https://hl7colombia.org/fhir/CodeSystem/coverage-regimen-cs",
+                  "code": "contributivo",
+                  "display": "Régimen Contributivo"
+                }
+              ]
+            }
+          }
+        ],
+        "name": [
+          {
+            "family": "Torres",
+            "given": [
+              "Ana"
+            ]
+          }
+        ],
+        "gender": "female",
+        "birthDate": "1990-06-15",
+        "address": [
+          {
+            "city": "Bogotá",
+            "country": "CO"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Organization/org-001",
+      "resource": {
+        "resourceType": "Organization",
+        "id": "org-001",
+        "identifier": [
+          {
+            "system": "https://www.supersalud.gov.co/habilitacion",
+            "value": "010101"
+          }
+        ],
+        "name": "Clínica Santa María",
+        "address": [
+          {
+            "city": "Bogotá",
+            "country": "CO"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Practitioner/pra-001",
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "pra-001",
+        "identifier": [
+          {
+            "system": "https://www.minsalud.gov.co/rethus",
+            "value": "12345"
+          }
+        ],
+        "name": [
+          {
+            "family": "Méndez",
+            "given": [
+              "Carlos"
+            ]
+          }
+        ],
+        "qualification": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "https://www.minsalud.gov.co/fhir/CodeSystem/profesiones",
+                  "code": "01",
+                  "display": "Médico General"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Encounter/enc-001",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "enc-001",
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "AMB",
+          "display": "ambulatorio"
+        },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "https://www.minsalud.gov.co/fhir/CodeSystem/cups",
+                "code": "890201",
+                "display": "Consulta de primera vez por medicina general"
+              }
+            ]
+          }
+        ],
+        "serviceProvider": {
+          "reference": "Organization/org-001"
+        },
+        "subject": {
+          "reference": "Patient/pac-001"
+        },
+        "period": {
+          "start": "2026-03-07T09:00:00",
+          "end": "2026-03-07T09:30:00"
+        }
+      }
+    },
+    {
+      "fullUrl": "Condition/con-001",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "con-001",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active",
+              "display": "Activo"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10",
+              "code": "J00",
+              "display": "Rinofaringitis aguda"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/pac-001"
+        },
+        "encounter": {
+          "reference": "Encounter/enc-001"
+        }
+      }
+    },
+    {
+      "fullUrl": "MedicationStatement/med-001",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "med-001",
+        "status": "active",
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.whocc.no/atc",
+              "code": "R06AX13",
+              "display": "Loratadina 10mg"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/pac-001"
+        },
+        "context": {
+          "reference": "Encounter/enc-001"
+        },
+        "dosage": [
+          {
+            "text": "10mg cada 24 horas por 7 días",
+            "timing": {
+              "repeat": {
+                "frequency": 1,
+                "period": 1,
+                "periodUnit": "d"
+              }
+            },
+            "route": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "26643006",
+                  "display": "Vía oral"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
